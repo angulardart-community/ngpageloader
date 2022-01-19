@@ -1,3 +1,7 @@
+## 4.1.0
+
+- Bump analyzer to allow compatibility with Angular 7.
+
 ## 4.0.0
 
 - Migrate to Unsound Null Safety.
