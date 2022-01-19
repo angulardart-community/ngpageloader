@@ -4,14 +4,14 @@ targets:
     builders:
       built_value_generator|built_value:
         enabled: true
-      pageloader|pageloader:
+      ngpageloader|pageloader:
         enabled: false
   _tests:
     sources: ["test/**"]
     builders:
       built_value_generator|built_value:
         enabled: false
-      pageloader|pageloader:
+      ngpageloader|pageloader:
         enabled: true
 
 builders:
