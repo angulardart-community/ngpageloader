@@ -13,7 +13,7 @@
 
 import 'dart:core';
 
-import 'package:pageloader/pageloader.dart';
+import 'package:ngpageloader/pageloader.dart';
 import 'package:webdriver/sync_core.dart' as wd;
 
 // TODO: WebDriver doesn't support pointer at the moment

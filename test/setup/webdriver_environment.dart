@@ -11,7 +11,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:pageloader/webdriver.dart';
+import 'package:ngpageloader/webdriver.dart';
 import 'package:webdriver/sync_io.dart';
 
 import 'io_config.dart' as webtest;

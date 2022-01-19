@@ -16,8 +16,8 @@ import 'dart:js' as js;
 import 'dart:svg' show SvgElement;
 
 import 'package:js/js_util.dart' as js_util;
-import 'package:pageloader/core.dart' as core;
-import 'package:pageloader/pageloader.dart';
+import 'package:ngpageloader/core.dart' as core;
+import 'package:ngpageloader/pageloader.dart';
 
 import 'html_iterators.dart';
 import 'html_page_utils.dart';

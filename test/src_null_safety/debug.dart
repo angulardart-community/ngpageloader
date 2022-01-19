@@ -11,10 +11,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:pageloader/debug.dart';
-import 'package:pageloader/pageloader.dart';
-import 'package:pageloader/src/debug/performance/profiler_listener.dart';
-import 'package:pageloader/src/debug/performance/timer_duration.dart';
+import 'package:ngpageloader/debug.dart';
+import 'package:ngpageloader/pageloader.dart';
+import 'package:ngpageloader/src/debug/performance/profiler_listener.dart';
+import 'package:ngpageloader/src/debug/performance/timer_duration.dart';
 import 'package:test/test.dart';
 
 import 'shared_page_objects.dart';

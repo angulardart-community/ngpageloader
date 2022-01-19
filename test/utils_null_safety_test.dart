@@ -11,7 +11,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:pageloader/utils.dart';
+import 'package:ngpageloader/utils.dart';
 import 'package:test/test.dart';
 
 // Test failures only; successes are tested in matchers_test.dart

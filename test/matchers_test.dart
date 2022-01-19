@@ -13,8 +13,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:pageloader/pageloader.dart';
-import 'package:pageloader/testing.dart';
+import 'package:ngpageloader/pageloader.dart';
+import 'package:ngpageloader/testing.dart';
 import 'package:test/test.dart';
 
 import 'generation_test_setup/dummy_page_loader_element.dart'

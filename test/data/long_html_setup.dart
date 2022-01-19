@@ -13,7 +13,7 @@
 
 import 'dart:html' as html;
 
-import 'package:pageloader/html.dart';
+import 'package:ngpageloader/html.dart';
 
 /// Returns a very long root level element of the document.
 ///

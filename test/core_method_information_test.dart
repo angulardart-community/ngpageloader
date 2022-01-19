@@ -15,7 +15,7 @@
 
 @TestOn('vm')
 
-import 'package:pageloader/src/generators/methods/core_method_information.dart';
+import 'package:ngpageloader/src/generators/methods/core_method_information.dart';
 import 'package:test/test.dart';
 
 import 'src/source_support.dart' as support;

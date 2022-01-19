@@ -1,17 +1,20 @@
-name: pageloader
+name: ngpageloader
 
 version: 4.1.0
 
-authors:
-  - Marc Fisher II (emeritus)
-  - Max Kim <maxkim@google.com>
-  - Matt Staats <staats@google.com>
+# Deprecated, but kept to thank all of the brilliant developers below for their
+# fantastic work.
+#
+# authors:
+#   - Marc Fisher II (emeritus)
+#   - Max Kim <maxkim@google.com>
+#   - Matt Staats <staats@google.com>
 
-description:
+description: |
   Supports the creation of page objects that can be shared between in-browser tests
   and WebDriver tests.
 
-homepage: https://github.com/google/pageloader
+homepage: https://github.com/angulardart-community/ngpageloader
 
 environment:
   sdk: '>=2.12.0 <3.0.0'

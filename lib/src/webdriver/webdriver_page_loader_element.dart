@@ -13,8 +13,8 @@
 
 import 'dart:math';
 
-import 'package:pageloader/core.dart' as core;
-import 'package:pageloader/pageloader.dart';
+import 'package:ngpageloader/core.dart' as core;
+import 'package:ngpageloader/pageloader.dart';
 import 'package:webdriver/async_core.dart' as async_wd;
 import 'package:webdriver/sync_core.dart' as sync_wd;
 

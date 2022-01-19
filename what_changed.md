@@ -20,7 +20,7 @@ couple of hints to trigger the generation step. The boilerplate is:
 
 ```dart
 // Assume this file is called: 'my_po.dart'
-import 'package:pageloader/pageloader.dart';
+import 'package:ngpageloader/pageloader.dart';
 
 part 'my_po.g.dart';
 
@@ -97,7 +97,7 @@ longer return as `null`. For `PageLoaderElement`, you directly use
 its `.exists` getter to check or use provided matchers.
 
 ```dart
-import 'package:pageloader/testing.dart';
+import 'package:ngpageloader/testing.dart';
 
 PageLoaderElement myElement = ...;
 expect(myElement.exists, isTrue);
@@ -107,7 +107,7 @@ expect(myElement, exists);
 For PageObjects, use provided matchers:
 
 ```dart
-import 'package:pageloader/testing.dart';
+import 'package:ngpageloader/testing.dart';
 
 SomePO somePO = SomePO.create(context);
 expect(somePO, exists);

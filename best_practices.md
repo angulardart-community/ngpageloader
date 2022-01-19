@@ -249,7 +249,7 @@ If your PageObject needs to create other PageObjects of variable type, use
 Example:
 
 ```dart
-import 'package:pageloader/utils.dart';
+import 'package:ngpageloader/utils.dart';
 
 // ...
 
@@ -375,14 +375,14 @@ abstract class MyPO {
 PageLoader provides API to perform common operations/checks on PageLoaderElement
 or PageObject. Users should use these API whenever possible.
 
-[Utils API](https://pub.dartlang.org/documentation/pageloader/latest/utils/utils-library.html)
+[Utils API](https://pub.dev/documentation/ngpageloader/latest/utils/utils-library.html)
 
-[Testing API](https://pub.dartlang.org/documentation/pageloader/latest/testing/testing-library.html)
+[Testing API](https://pub.dev/documentation/ngpageloader/latest/testing/testing-library.html)
 
 BAD:
 
 ```dart {.bad}
-import 'package:pageloader/pageloader.dart';
+import 'package:ngpageloader/pageloader.dart';
 
 @PageObject()
 @CheckTag('some-tag')
@@ -400,8 +400,8 @@ final poExists = somePO.rootElement.exists;
 GOOD:
 
 ```dart {.good}
-import 'package:pageloader/pageloader.dart';
-import 'package:pageloader/utils.dart';
+import 'package:ngpageloader/pageloader.dart';
+import 'package:ngpageloader/utils.dart';
 
 @PageObject()
 @CheckTag('some-tag')
@@ -425,7 +425,7 @@ expect(somePO.rootElement.exists, isTrue);
 GOOD:
 
 ```dart {.good}
-import 'package:pageloader/testing.dart';
+import 'package:ngpageloader/testing.dart';
 
 expect(somePO, exists);
 ```

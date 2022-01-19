@@ -13,7 +13,7 @@
 
 @TestOn('browser')
 
-import 'package:pageloader/html.dart';
+import 'package:ngpageloader/html.dart';
 import 'package:test/test.dart';
 
 import 'data/html_setup.dart' as html_setup;

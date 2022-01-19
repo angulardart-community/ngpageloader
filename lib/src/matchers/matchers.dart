@@ -12,7 +12,7 @@
 // limitations under the License.
 
 import 'package:matcher/matcher.dart';
-import 'package:pageloader/utils.dart' as utils;
+import 'package:ngpageloader/utils.dart' as utils;
 
 /// A matcher that checks if a PageLoaderElement/PageObject exists.
 const Matcher exists = _Exists();

@@ -17,7 +17,7 @@ import 'dart:convert';
 
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
-import 'package:pageloader/src/api/page_object_annotation.dart';
+import 'package:ngpageloader/src/api/page_object_annotation.dart';
 
 import 'methods/core.dart';
 import 'methods/core_method_information.dart';

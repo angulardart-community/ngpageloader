@@ -50,7 +50,7 @@ Consider the following sample `PageObject`:
 
 ```dart
 // FILE: my_po.dart
-import 'package:pageloader/pageloader.dart';
+import 'package:ngpageloader/pageloader.dart';
 
 part 'my_po.g.dart';
 
@@ -132,7 +132,7 @@ that wraps `MyPO`:
 
 ```dart
 // FILE: 'some_other_po.dart'
-import 'package:pageloader/pageloader.dart';
+import 'package:ngpageloader/pageloader.dart';
 
 import 'my_po.dart';
 
@@ -206,16 +206,16 @@ Filters. (However, typically you only need at most one.)
 
 Available Finders are:
 
-1. [`@ByClass(...)`](https://pub.dev/documentation/pageloader/latest/webdriver/ByClass-class.html)
-2. [`@ByCss(...)`](https://pub.dev/documentation/pageloader/latest/webdriver/ByCss-class.html)
-3. [`@ByDebugId(...)`](https://pub.dev/documentation/pageloader/latest/webdriver/ByDebugId-class.html)
-4. [`@ById(...)`](https://pub.dev/documentation/pageloader/latest/webdriver/ById-class.html)
-5. [`@ByTagName(...)`](https://pub.dev/documentation/pageloader/latest/webdriver/ByTagName-class.html)
-6. [`@ByTestId(...)`](https://pub.dev/documentation/pageloader/latest/webdriver/ByTestId-class.html)
-7. [`@ByCheckTag()`](https://pub.dev/documentation/pageloader/latest/webdriver/ByCheckTag-class.html)
+1. [`@ByClass(...)`](https://pub.dev/documentation/ngpageloader/latest/webdriver/ByClass-class.html)
+2. [`@ByCss(...)`](https://pub.dev/documentation/ngpageloader/latest/webdriver/ByCss-class.html)
+3. [`@ByDebugId(...)`](https://pub.dev/documentation/ngpageloader/latest/webdriver/ByDebugId-class.html)
+4. [`@ById(...)`](https://pub.dev/documentation/ngpageloader/latest/webdriver/ById-class.html)
+5. [`@ByTagName(...)`](https://pub.dev/documentation/ngpageloader/latest/webdriver/ByTagName-class.html)
+6. [`@ByTestId(...)`](https://pub.dev/documentation/ngpageloader/latest/webdriver/ByTestId-class.html)
+7. [`@ByCheckTag()`](https://pub.dev/documentation/ngpageloader/latest/webdriver/ByCheckTag-class.html)
 
 There is also another annotation that can be used in place of a
-Finder annotation - the [`@root`](https://pub.dev/documentation/pageloader/latest/webdriver/root-constant.html) annotation.
+Finder annotation - the [`@root`](https://pub.dev/documentation/ngpageloader/latest/webdriver/root-constant.html) annotation.
 
 The `@root` annotation provides the `PageObject` direct access to its
 currently bound `PageLoaderElement`. For example:
@@ -249,8 +249,8 @@ representing `<child-tag>`.`
 
 There are also two context finders that wrap around the 7 Finders (non-`@root`) above:
 
-1. [`@First(...)`](https://pub.dev/documentation/pageloader/latest/webdriver/First-class.html)
-2. [`@Global(...)`](https://pub.dev/documentation/pageloader/latest/webdriver/Global-class.html)
+1. [`@First(...)`](https://pub.dev/documentation/ngpageloader/latest/webdriver/First-class.html)
+2. [`@Global(...)`](https://pub.dev/documentation/ngpageloader/latest/webdriver/Global-class.html)
 
 Example of context Finders:
 
@@ -293,13 +293,13 @@ they only return `PageObjects` with the filtered class.
 
 Full list of Filters:
 
-1. [`@IsDisplayed()`](https://pub.dev/documentation/pageloader/latest/webdriver/IsDisplayed-class.html)
-2. [`@IsTag(...)`](https://pub.dev/documentation/pageloader/latest/webdriver/IsTag-class.html)
-3. [`@WithAttribute(...)`](https://pub.dev/documentation/pageloader/latest/webdriver/WithAttribute-class.html)
-4. [`@WithClass(...)`](https://pub.dev/documentation/pageloader/latest/webdriver/WithClass-class.html)
-5. [`@WithInnerText(...)`](https://pub.dev/documentation/pageloader/latest/webdriver/WithInnerText-class.html)
-6. [`@WithProperty(...)`](https://pub.dev/documentation/pageloader/latest/webdriver/WithProperty-class.html)
-7. [`@WithVisibleText(...)`](https://pub.dev/documentation/pageloader/latest/webdriver/WithVisibleText-class.html)
+1. [`@IsDisplayed()`](https://pub.dev/documentation/ngpageloader/latest/webdriver/IsDisplayed-class.html)
+2. [`@IsTag(...)`](https://pub.dev/documentation/ngpageloader/latest/webdriver/IsTag-class.html)
+3. [`@WithAttribute(...)`](https://pub.dev/documentation/ngpageloader/latest/webdriver/WithAttribute-class.html)
+4. [`@WithClass(...)`](https://pub.dev/documentation/ngpageloader/latest/webdriver/WithClass-class.html)
+5. [`@WithInnerText(...)`](https://pub.dev/documentation/ngpageloader/latest/webdriver/WithInnerText-class.html)
+6. [`@WithProperty(...)`](https://pub.dev/documentation/ngpageloader/latest/webdriver/WithProperty-class.html)
+7. [`@WithVisibleText(...)`](https://pub.dev/documentation/ngpageloader/latest/webdriver/WithVisibleText-class.html)
 
 Finally, these annotations may only be used on abstract getter methods that return instances of type:
 
@@ -479,10 +479,10 @@ abstract class TenuredTeacherPO
 }
 ```
 
-[`PageLoaderElement`]: https://github.com/google/pageloader/blob/master/lib/src/api/page_loader_element_interface.dart
+[`PageLoaderElement`]: https://github.com/angulardart-community/ngpageloader/blob/master/lib/src/api/page_loader_element_interface.dart
 
 [`dart:html`]: https://api.dart.dev/stable/2.7.1/dart-html/dart-html-library.html
 
 [`package:webdriver`]: https://github.com/google/webdriver.dart 
 
-[`PageLoaderElement API`]: https://pub.dev/documentation/pageloader/latest/webdriver/PageLoaderElement-class.html
+[`PageLoaderElement API`]: https://pub.dev/documentation/ngpageloader/latest/webdriver/PageLoaderElement-class.html

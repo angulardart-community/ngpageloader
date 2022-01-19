@@ -14,7 +14,7 @@
 import 'dart:core';
 import 'dart:math';
 
-import 'package:pageloader/pageloader.dart';
+import 'package:ngpageloader/pageloader.dart';
 
 /// Concrete implementations for use in code generation tests, mostly via
 /// toString().

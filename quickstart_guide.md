@@ -70,7 +70,7 @@ Start with the following boiler-plate code:
 
 ```dart
 // FILE: shopping_cart/test/shopping_cart_item_po.dart
-import 'package:pageloader/pageloader.dart';
+import 'package:ngpageloader/pageloader.dart';
 
 // Pre-pend '.g' before '.dart'
 // Since our file is `shopping_cart_item_po.dart`,
@@ -92,7 +92,7 @@ anything special. Let's add some arbitrary methods into this
 
 ```dart
 // FILE: shopping_cart/test/shopping_cart_item_po.dart
-import 'package:pageloader/pageloader.dart';
+import 'package:ngpageloader/pageloader.dart';
 
 part 'shopping_cart_item_po.g.dart';
 
@@ -139,7 +139,7 @@ Let's start with our boiler-plate again:
 
 ```dart
 // FILE: shopping_cart/test/shopping_cart_po.dart
-import 'package:pageloader/pageloader.dart';
+import 'package:ngpageloader/pageloader.dart';
 
 part 'shopping_cart_po.g.dart';
 
@@ -157,7 +157,7 @@ Since we've already finished writing a `PageObject` for
 
 ```dart
 // FILE: shopping_cart/test/shopping_cart_po.dart
-import 'package:pageloader/pageloader.dart';
+import 'package:ngpageloader/pageloader.dart';
 
 import 'shopping_cart_item_po.dart';
 
@@ -219,7 +219,7 @@ Let's create our very last `PageObject` for `<shopping-cart-menu>`:
 
 ```dart
 // FILE: shopping_cart/test/shopping_cart_menu_po.dart
-import 'package:pageloader/pageloader.dart';
+import 'package:ngpageloader/pageloader.dart';
 
 import 'shopping_cart_item_po.dart';
 import 'shopping_cart_po.dart';
@@ -294,14 +294,14 @@ Example:
 ```dart
 import 'dart:html';
 
-import 'package:pageloader/html.dart';
+import 'package:ngpageloader/html.dart';
 
 Element myElement = ...;
 final context = HtmlPageLoaderElement.createFromElement(myElement);
 final myPO = MyPO.create(context);
 ```
 
-Notice that we are using `HtmlPageLoaderElement` from `package:pageloader/html.dart` here.
+Notice that we are using `HtmlPageLoaderElement` from `package:ngpageloader/html.dart` here.
 
 For more information on `dart:html`, refer to their [documentation](https://api.dart.dev/stable/2.7.1/dart-html/Element-class.html).
 You can also find examples within
@@ -310,7 +310,7 @@ this package's source code labeled as `html_?_test.dart`.
 ### 2.2 `package:webdriver` construction
 
 ```dart
-import 'package:pageloader/webdriver.dart';
+import 'package:ngpageloader/webdriver.dart';
 import 'package:webdriver/sync_io.dart';
 
 String pagePath = ...; // Page uri path
@@ -328,7 +328,7 @@ loader = null;
 driver.quit();
 ```
 
-Notice that we are using `WebdriverPageLoaderElement` from `package:pageloader/webdriver.dart` here.
+Notice that we are using `WebdriverPageLoaderElement` from `package:ngpageloader/webdriver.dart` here.
 
 For more information on `package:webdriver`, refer to their [documentation](https://pub.dev/documentation/webdriver/latest/webdriver.io/WebDriver-class.html).
 You can also find examples within
@@ -348,7 +348,7 @@ but for brevity we will focus only on the top-most `<shopping-cart-menu>` here.
 // FILE: shopping_cart/test/shopping_cart_menu_test.dart
 import 'dart:html';
 
-import 'package:pageloader/html.dart';
+import 'package:ngpageloader/html.dart';
 import 'package:test/test.dart';
 
 // We don't have to import the other two.
@@ -470,16 +470,16 @@ the root HTML document node. If more than one `<shopping-cart-menu>`
 is available underneath the root node, users should avoid using
 `lookup` constructor and manually navigate to a specific target.
 
-## 3. `package:pageloader/utils.dart` and `package:pageloader/testing.dart`
+## 3. `package:ngpageloader/utils.dart` and `package:ngpageloader/testing.dart`
 
 There are two helper libraries within PageLoader.
 
-[`package:pageloader/utils.dart`](https://pub.dev/documentation/pageloader/latest/utils/utils-library.html) are helper functions that should be used **within PageObject definition files**.
+[`package:ngpageloader/utils.dart`](https://pub.dev/documentation/ngpageloader/latest/utils/utils-library.html) are helper functions that should be used **within PageObject definition files**.
 
-[`package:pageloader/testing.dart`](https://pub.dev/documentation/pageloader/latest/testing/testing-library.html) contains `package:test/test.dart` `Matcher`s that can be used with PageLoader entities. This
+[`package:ngpageloader/testing.dart`](https://pub.dev/documentation/ngpageloader/latest/testing/testing-library.html) contains `package:test/test.dart` `Matcher`s that can be used with PageLoader entities. This
 library should be used **within test files**. 
 
-[`PageLoaderElement`]: https://github.com/google/pageloader/blob/master/lib/src/api/page_loader_element_interface.dart
+[`PageLoaderElement`]: https://github.com/angulardart-community/ngpageloader/blob/master/lib/src/api/page_loader_element_interface.dart
 
 [`dart:html`]: https://api.dart.dev/stable/2.7.1/dart-html/dart-html-library.html
 

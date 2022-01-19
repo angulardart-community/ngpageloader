@@ -32,7 +32,7 @@ class PageObjectGenerator extends GeneratorForAnnotation<PageObject> {
 
   @override
   TypeChecker get typeChecker => TypeChecker.fromUrl(
-      'package:pageloader/src/api/page_object_annotation.dart#PageObject');
+      'package:ngpageloader/src/api/page_object_annotation.dart#PageObject');
 
   /// Generates a page object, as source String, for a class annotated with
   /// '@PageObject()'.

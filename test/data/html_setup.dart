@@ -14,7 +14,7 @@
 import 'dart:html' as html;
 import 'dart:svg' show SvgElement;
 
-import 'package:pageloader/html.dart';
+import 'package:ngpageloader/html.dart';
 
 /// Returns the root level element of the document.
 ///

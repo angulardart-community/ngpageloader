@@ -15,7 +15,7 @@ import 'dart:html';
 import 'dart:math';
 import 'dart:svg' show SvgElement;
 
-import 'package:pageloader/pageloader.dart';
+import 'package:ngpageloader/pageloader.dart';
 
 import 'html_page_loader_element.dart';
 

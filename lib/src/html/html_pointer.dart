@@ -14,7 +14,7 @@
 import 'dart:html' as html;
 import 'dart:math';
 
-import 'package:pageloader/pageloader.dart';
+import 'package:ngpageloader/pageloader.dart';
 
 import 'html_page_loader_element.dart';
 

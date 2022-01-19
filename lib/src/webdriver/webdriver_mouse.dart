@@ -13,7 +13,7 @@
 
 import 'dart:core';
 
-import 'package:pageloader/pageloader.dart';
+import 'package:ngpageloader/pageloader.dart';
 import 'package:webdriver/sync_core.dart' as wd;
 
 import 'webdriver_page_loader_element.dart';
