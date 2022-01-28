@@ -10,6 +10,7 @@ jobs:
   test:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         sdk: [stable, beta, dev, 2.12.0, 2.14.1]
@@ -24,13 +25,14 @@ jobs:
         run: dart pub get
 
       - name: Run core and creator tests
-        run: dart test -x webdriver
+        # Use `expanded` for better logging in CI environments
+        run: dart test -x webdriver -r expanded
 
       - name: Run HTML tests
-        run: dart test -t html -p chrome
+        run: dart test -t html -p chrome -r expanded
 
       - name: Start webdriver
         run: chromedriver --port=4444 --url-base=wd/hub &
 
       - name: Run webdriver tests
-        run: dart test -t webdriver
+        run: dart test -t webdriver -r expanded
