@@ -1,5 +1,3 @@
-// @dart = 2.9
-
 // Copyright 2017 Google Inc. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -40,7 +38,7 @@ final String pageObjectList = 'PageObjectList';
 
 /// Returns a declaration of a annotation.
 String generateAnnotationDeclaration(Annotation annotation) =>
-    '${annotation.name}(${annotation.arguments.arguments.join(", ")})';
+    '${annotation.name}(${annotation.arguments!.arguments.join(", ")})';
 
 /// Returns a 'ByTagName' declaration from the 'ByCheckTag' annotation.
 String generateByTagNameFromByCheckTag(
@@ -58,15 +56,15 @@ String generateByTagNameFromByCheckTag(
 /// If there is no tag name associated with the Page Object,
 /// returns and empty string.
 String _extractTagName(ClassElement poTypeElement) {
-  var expectedTag = '';
+  String expectedTag = '';
   for (final annotation in poTypeElement.metadata) {
     final annotationElement = annotation.element;
     if (annotationElement is ConstructorElement) {
       final annotationName = annotationElement.enclosingElement.displayName;
       final annotationValue = annotation.computeConstantValue();
       if (annotationName == 'CheckTag') {
-        final inner = annotationValue.getField('_expectedTagName');
-        expectedTag = inner.toStringValue();
+        final inner = annotationValue!.getField('_expectedTagName')!;
+        expectedTag = inner.toStringValue()!;
       }
     }
   }
@@ -170,14 +168,14 @@ DartType getInnerType(DartType topType, String matchingType) {
       matchingType.contains('.') ? matchingType.split('.')[1] : matchingType;
   final typeArgs = (topType as ParameterizedType).typeArguments;
   final first = typeArgs.first;
-  if (first.element.name == matchingType) {
+  if (first.element?.name == matchingType) {
     return first;
   }
   return getInnerType(first, matchingType);
 }
 
 /// Return the Dart code that corresponds to the [type].
-String typeToCode(DartType type) {
+String? typeToCode(DartType? type) {
   // TODO: This should be replaced with actual code generation.
   return type?.getDisplayString(withNullability: false);
 }

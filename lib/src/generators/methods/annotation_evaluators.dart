@@ -1,5 +1,3 @@
-// @dart = 2.9
-
 // Copyright 2017 Google Inc. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -46,7 +44,8 @@ Set<AnnotationKind> evaluateAsAtomicAnnotation(Element element) {
 Set<AnnotationKind> evaluateAsInterfaceAnnotation(Element element) {
   final returnSet = <AnnotationKind>{};
 
-  DartType type;
+  late DartType type;
+  // TODO(GZGavinZhao): Um... Is there a difference here?
   if (element is PropertyAccessorElement && element.isGetter) {
     type = element.returnType;
   } else if (element is ConstructorElement) {
@@ -54,7 +53,7 @@ Set<AnnotationKind> evaluateAsInterfaceAnnotation(Element element) {
   }
 
   if (type is InterfaceType) {
-    final seenValidAnnotations = <AnnotationKind>{};
+    final seenValidAnnotations = <AnnotationKind?>{};
     final interfaces = [type, ...type.allSupertypes];
     for (var interface in interfaces) {
       final interfaceElement = interface.element;
@@ -64,7 +63,7 @@ Set<AnnotationKind> evaluateAsInterfaceAnnotation(Element element) {
         );
       }
     }
-    returnSet.addAll(seenValidAnnotations.where((ak) => ak != null));
+    returnSet.addAll(seenValidAnnotations.whereType<AnnotationKind>());
   }
   return returnSet;
 }
@@ -84,8 +83,8 @@ enum AnnotationKind {
 }
 
 /// Maps library and className to proper AnnotationKind.
-AnnotationKind classNameToAnnotationKind(String className, {bool isAtomic}) {
-  if (isAtomic) {
+AnnotationKind? classNameToAnnotationKind(String className, {bool? isAtomic}) {
+  if (isAtomic != null && isAtomic) {
     switch (className) {
       case 'LegacyPageObject':
         return AnnotationKind.legacyPageObject;
