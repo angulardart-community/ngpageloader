@@ -5,6 +5,8 @@ tags:
     test_on: vm
   html:
     test_on: browser
+    retry: 5
   webdriver:
     test_on: vm
+    retry: 5
     timeout: 2x
