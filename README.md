@@ -1,7 +1,7 @@
 PageLoader
 ==========
 
-[![Build Status](https://travis-ci.org/google/pageloader.svg?branch=master)](https://travis-ci.org/google/pageloader)
+![Dart CI](https://img.shields.io/github/workflow/status/angulardart-community/ngpageloader/Dart%20CI)]
 
 A framework for creating page objects for in-browser tests or Webdriver tests.
 
