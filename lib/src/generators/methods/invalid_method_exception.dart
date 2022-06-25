@@ -1,5 +1,3 @@
-// @dart = 2.9
-
 // Copyright 2017 Google Inc. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -34,7 +32,7 @@ class InvalidMethodException implements Exception {
     final compUnitElement = _getCompilationUnitElement(node);
     final uri = compUnitElement.source.uri;
 
-    final exactLineInfo = compUnitElement.lineInfo.getLocation(node.offset);
+    final exactLineInfo = compUnitElement.lineInfo!.getLocation(node.offset);
     return '$uri $exactLineInfo\t\t ${node.toSource()}';
   }
 
@@ -42,8 +40,8 @@ class InvalidMethodException implements Exception {
   CompilationUnitElement _getCompilationUnitElement(AstNode node) {
     var _node = node;
     while (_node is! CompilationUnit) {
-      _node = _node.parent;
+      _node = _node.parent!;
     }
-    return (_node as CompilationUnit).declaredElement;
+    return _node.declaredElement!;
   }
 }
