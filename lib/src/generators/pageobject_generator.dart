@@ -265,7 +265,7 @@ List<String> getMixins(ClassElement mainPo, String mainSignature) {
   // class, we add its mixin-component to the list.
   if (supertype != null && !supertype.isDartCoreObject) {
     if (isPageObject(supertype.element)) {
-      withs.add(supertype.displayName);
+      withs.add(supertype.element.name);
     }
   }
 
@@ -275,7 +275,7 @@ List<String> getMixins(ClassElement mainPo, String mainSignature) {
   // Generated:
   //   class $MyPo extends MyPo with $$A_POMixin, $$B_POMixin, $$MyPo
   for (final mixin in mixins) {
-    final name = mixin.displayName;
+    final name = mixin.element.name;
     if (isPageObject(mixin.element)) {
       withs.add(name);
     }

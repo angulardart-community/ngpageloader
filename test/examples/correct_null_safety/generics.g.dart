@@ -606,7 +606,7 @@ mixin $$RootPo<T> on RootPo<T> {
 // ignore_for_file: overridden_fields, annotate_overrides
 // ignore_for_file: prefer_final_locals, deprecated_member_use_from_same_package
 class $GenericsUsingMixin<T> extends GenericsUsingMixin<T>
-    with $$GenericsMixin<T>, $$GenericsUsingMixin<T> {
+    with $$GenericsMixin, $$GenericsUsingMixin<T> {
   PageLoaderElement $__root__;
   $GenericsUsingMixin.create(PageLoaderElement currentContext)
       : $__root__ = currentContext {
@@ -761,7 +761,7 @@ mixin $$GenericsMixin<T> on GenericsMixin<T> {
 // ignore_for_file: overridden_fields, annotate_overrides
 // ignore_for_file: prefer_final_locals, deprecated_member_use_from_same_package
 class $GenericPairUsingMixin<T, V> extends GenericPairUsingMixin<T, V>
-    with $$GenericPairMixin<T, V>, $$GenericPairUsingMixin<T, V> {
+    with $$GenericPairMixin, $$GenericPairUsingMixin<T, V> {
   PageLoaderElement $__root__;
   $GenericPairUsingMixin.create(PageLoaderElement currentContext)
       : $__root__ = currentContext {
@@ -915,7 +915,7 @@ mixin $$GenericPairMixin<T, V> on GenericPairMixin<T, V> {
 // ignore_for_file: overridden_fields, annotate_overrides
 // ignore_for_file: prefer_final_locals, deprecated_member_use_from_same_package
 class $RootPoUsingMixin<T> extends RootPoUsingMixin<T>
-    with $$RootPoMixin<T>, $$RootPoUsingMixin<T> {
+    with $$RootPoMixin, $$RootPoUsingMixin<T> {
   PageLoaderElement $__root__;
   $RootPoUsingMixin.create(PageLoaderElement currentContext)
       : $__root__ = currentContext {

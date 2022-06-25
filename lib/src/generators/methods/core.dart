@@ -170,7 +170,7 @@ DartType getInnerType(DartType topType, String matchingType) {
       matchingType.contains('.') ? matchingType.split('.')[1] : matchingType;
   final typeArgs = (topType as ParameterizedType).typeArguments;
   final first = typeArgs.first;
-  if (first.name == matchingType) {
+  if (first.element.name == matchingType) {
     return first;
   }
   return getInnerType(first, matchingType);
