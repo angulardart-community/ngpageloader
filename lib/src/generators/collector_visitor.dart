@@ -1,5 +1,3 @@
-// @dart = 2.9
-
 // Copyright 2017 Google Inc. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -58,7 +56,7 @@ class CollectorVisitor extends GeneralizingAstVisitor<void> {
   void writeToConstructorBuffer(
       StringBuffer constructorBuffer,
       String className,
-      String defaultTag,
+      String? defaultTag,
       List<String> withs,
       PageObject poAnnotation) {
     writeTestCreatorGettersInConstructor(constructorBuffer, withs);
@@ -305,12 +303,12 @@ class CollectorVisitor extends GeneralizingAstVisitor<void> {
               : parameter;
           final type =
               (declaration is SimpleFormalParameter && declaration.type != null)
-                  ? declaration.type.toSource()
+                  ? declaration.type!.toSource()
                   : 'var';
 
           var defaultValue = (parameter is DefaultFormalParameter &&
                   parameter.defaultValue != null)
-              ? parameter.defaultValue.toSource()
+              ? parameter.defaultValue!.toSource()
               : null;
 
           if (defaultValue == 'null') {
@@ -323,20 +321,20 @@ class CollectorVisitor extends GeneralizingAstVisitor<void> {
 
           if (parameter.isRequired) {
             buffer.writeln('''{
-                'name': '${parameter.declaredElement.name}',
+                'name': '${parameter.declaredElement!.name}',
                 'kind': 'required',
                 'type': '$type'
                },''');
           } else if (parameter.isNamed) {
             buffer.writeln('''{
-                'name': '${parameter.declaredElement.name}',
+                'name': '${parameter.declaredElement!.name}',
                 'kind': 'named',
                 'type': '$type',
                 'default': $defaultValue
                },''');
           } else if (parameter.isOptionalPositional) {
             buffer.writeln('''{
-                'name': '${parameter.declaredElement.name}',
+                'name': '${parameter.declaredElement!.name}',
                 'kind': 'positional',
                 'type': '$type',
                 'default': $defaultValue
