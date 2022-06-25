@@ -14,13 +14,13 @@ class _$PointerFinderMethod extends PointerFinderMethod {
 
   factory _$PointerFinderMethod(
           [void Function(PointerFinderMethodBuilder)? updates]) =>
-      (new PointerFinderMethodBuilder()..update(updates)).build();
+      (new PointerFinderMethodBuilder()..update(updates))._build();
 
   _$PointerFinderMethod._({required this.nullSafety, required this.name})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        nullSafety, 'PointerFinderMethod', 'nullSafety');
-    BuiltValueNullFieldError.checkNotNull(name, 'PointerFinderMethod', 'name');
+        nullSafety, r'PointerFinderMethod', 'nullSafety');
+    BuiltValueNullFieldError.checkNotNull(name, r'PointerFinderMethod', 'name');
   }
 
   @override
@@ -47,7 +47,7 @@ class _$PointerFinderMethod extends PointerFinderMethod {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('PointerFinderMethod')
+    return (newBuiltValueToStringHelper(r'PointerFinderMethod')
           ..add('nullSafety', nullSafety)
           ..add('name', name))
         .toString();
@@ -92,14 +92,16 @@ class PointerFinderMethodBuilder
   }
 
   @override
-  _$PointerFinderMethod build() {
+  PointerFinderMethod build() => _build();
+
+  _$PointerFinderMethod _build() {
     _$PointerFinderMethod _$result;
     try {
       _$result = _$v ??
           new _$PointerFinderMethod._(
               nullSafety: nullSafety.build(),
               name: BuiltValueNullFieldError.checkNotNull(
-                  name, 'PointerFinderMethod', 'name'));
+                  name, r'PointerFinderMethod', 'name'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -107,7 +109,7 @@ class PointerFinderMethodBuilder
         nullSafety.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'PointerFinderMethod', _$failedField, e.toString());
+            r'PointerFinderMethod', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -116,4 +118,4 @@ class PointerFinderMethodBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

@@ -20,7 +20,7 @@ class _$IterableFinderMethod extends IterableFinderMethod {
 
   factory _$IterableFinderMethod(
           [void Function(IterableFinderMethodBuilder)? updates]) =>
-      (new IterableFinderMethodBuilder()..update(updates)).build();
+      (new IterableFinderMethodBuilder()..update(updates))._build();
 
   _$IterableFinderMethod._(
       {required this.name,
@@ -29,15 +29,16 @@ class _$IterableFinderMethod extends IterableFinderMethod {
       required this.filterDeclarations,
       required this.checkerDeclarations})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(name, 'IterableFinderMethod', 'name');
     BuiltValueNullFieldError.checkNotNull(
-        iterableTypeArgument, 'IterableFinderMethod', 'iterableTypeArgument');
+        name, r'IterableFinderMethod', 'name');
     BuiltValueNullFieldError.checkNotNull(
-        finderDeclaration, 'IterableFinderMethod', 'finderDeclaration');
+        iterableTypeArgument, r'IterableFinderMethod', 'iterableTypeArgument');
     BuiltValueNullFieldError.checkNotNull(
-        filterDeclarations, 'IterableFinderMethod', 'filterDeclarations');
+        finderDeclaration, r'IterableFinderMethod', 'finderDeclaration');
     BuiltValueNullFieldError.checkNotNull(
-        checkerDeclarations, 'IterableFinderMethod', 'checkerDeclarations');
+        filterDeclarations, r'IterableFinderMethod', 'filterDeclarations');
+    BuiltValueNullFieldError.checkNotNull(
+        checkerDeclarations, r'IterableFinderMethod', 'checkerDeclarations');
   }
 
   @override
@@ -72,7 +73,7 @@ class _$IterableFinderMethod extends IterableFinderMethod {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('IterableFinderMethod')
+    return (newBuiltValueToStringHelper(r'IterableFinderMethod')
           ..add('name', name)
           ..add('iterableTypeArgument', iterableTypeArgument)
           ..add('finderDeclaration', finderDeclaration)
@@ -137,28 +138,32 @@ class IterableFinderMethodBuilder
   }
 
   @override
-  _$IterableFinderMethod build() {
+  IterableFinderMethod build() => _build();
+
+  _$IterableFinderMethod _build() {
     final _$result = _$v ??
         new _$IterableFinderMethod._(
             name: BuiltValueNullFieldError.checkNotNull(
-                name, 'IterableFinderMethod', 'name'),
+                name, r'IterableFinderMethod', 'name'),
             iterableTypeArgument: BuiltValueNullFieldError.checkNotNull(
                 iterableTypeArgument,
-                'IterableFinderMethod',
+                r'IterableFinderMethod',
                 'iterableTypeArgument'),
             finderDeclaration: BuiltValueNullFieldError.checkNotNull(
-                finderDeclaration, 'IterableFinderMethod', 'finderDeclaration'),
+                finderDeclaration,
+                r'IterableFinderMethod',
+                'finderDeclaration'),
             filterDeclarations: BuiltValueNullFieldError.checkNotNull(
                 filterDeclarations,
-                'IterableFinderMethod',
+                r'IterableFinderMethod',
                 'filterDeclarations'),
             checkerDeclarations: BuiltValueNullFieldError.checkNotNull(
                 checkerDeclarations,
-                'IterableFinderMethod',
+                r'IterableFinderMethod',
                 'checkerDeclarations'));
     replace(_$result);
     return _$result;
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

@@ -26,7 +26,7 @@ class _$SingleFinderMethod extends SingleFinderMethod {
 
   factory _$SingleFinderMethod(
           [void Function(SingleFinderMethodBuilder)? updates]) =>
-      (new SingleFinderMethodBuilder()..update(updates)).build();
+      (new SingleFinderMethodBuilder()..update(updates))._build();
 
   _$SingleFinderMethod._(
       {required this.name,
@@ -38,21 +38,21 @@ class _$SingleFinderMethod extends SingleFinderMethod {
       required this.isRoot,
       required this.isNullElement})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(name, 'SingleFinderMethod', 'name');
+    BuiltValueNullFieldError.checkNotNull(name, r'SingleFinderMethod', 'name');
     BuiltValueNullFieldError.checkNotNull(
-        pageObjectType, 'SingleFinderMethod', 'pageObjectType');
+        pageObjectType, r'SingleFinderMethod', 'pageObjectType');
     BuiltValueNullFieldError.checkNotNull(
-        finderDeclaration, 'SingleFinderMethod', 'finderDeclaration');
+        finderDeclaration, r'SingleFinderMethod', 'finderDeclaration');
     BuiltValueNullFieldError.checkNotNull(
-        filterDeclarations, 'SingleFinderMethod', 'filterDeclarations');
+        filterDeclarations, r'SingleFinderMethod', 'filterDeclarations');
     BuiltValueNullFieldError.checkNotNull(
-        checkerDeclarations, 'SingleFinderMethod', 'checkerDeclarations');
+        checkerDeclarations, r'SingleFinderMethod', 'checkerDeclarations');
     BuiltValueNullFieldError.checkNotNull(
-        templateType, 'SingleFinderMethod', 'templateType');
+        templateType, r'SingleFinderMethod', 'templateType');
     BuiltValueNullFieldError.checkNotNull(
-        isRoot, 'SingleFinderMethod', 'isRoot');
+        isRoot, r'SingleFinderMethod', 'isRoot');
     BuiltValueNullFieldError.checkNotNull(
-        isNullElement, 'SingleFinderMethod', 'isNullElement');
+        isNullElement, r'SingleFinderMethod', 'isNullElement');
   }
 
   @override
@@ -96,7 +96,7 @@ class _$SingleFinderMethod extends SingleFinderMethod {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('SingleFinderMethod')
+    return (newBuiltValueToStringHelper(r'SingleFinderMethod')
           ..add('name', name)
           ..add('pageObjectType', pageObjectType)
           ..add('finderDeclaration', finderDeclaration)
@@ -183,25 +183,27 @@ class SingleFinderMethodBuilder
   }
 
   @override
-  _$SingleFinderMethod build() {
+  SingleFinderMethod build() => _build();
+
+  _$SingleFinderMethod _build() {
     final _$result = _$v ??
         new _$SingleFinderMethod._(
             name: BuiltValueNullFieldError.checkNotNull(
-                name, 'SingleFinderMethod', 'name'),
+                name, r'SingleFinderMethod', 'name'),
             pageObjectType: BuiltValueNullFieldError.checkNotNull(
-                pageObjectType, 'SingleFinderMethod', 'pageObjectType'),
+                pageObjectType, r'SingleFinderMethod', 'pageObjectType'),
             finderDeclaration: BuiltValueNullFieldError.checkNotNull(
-                finderDeclaration, 'SingleFinderMethod', 'finderDeclaration'),
+                finderDeclaration, r'SingleFinderMethod', 'finderDeclaration'),
             filterDeclarations: BuiltValueNullFieldError.checkNotNull(
-                filterDeclarations, 'SingleFinderMethod', 'filterDeclarations'),
+                filterDeclarations, r'SingleFinderMethod', 'filterDeclarations'),
             checkerDeclarations: BuiltValueNullFieldError.checkNotNull(
-                checkerDeclarations, 'SingleFinderMethod', 'checkerDeclarations'),
+                checkerDeclarations, r'SingleFinderMethod', 'checkerDeclarations'),
             templateType: BuiltValueNullFieldError.checkNotNull(
-                templateType, 'SingleFinderMethod', 'templateType'),
+                templateType, r'SingleFinderMethod', 'templateType'),
             isRoot: BuiltValueNullFieldError.checkNotNull(
-                isRoot, 'SingleFinderMethod', 'isRoot'),
+                isRoot, r'SingleFinderMethod', 'isRoot'),
             isNullElement:
-                BuiltValueNullFieldError.checkNotNull(isNullElement, 'SingleFinderMethod', 'isNullElement'));
+                BuiltValueNullFieldError.checkNotNull(isNullElement, r'SingleFinderMethod', 'isNullElement'));
     replace(_$result);
     return _$result;
   }
@@ -235,4 +237,4 @@ abstract class SingleFinderMethodBaseBuilder {
   set isNullElement(bool? isNullElement);
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

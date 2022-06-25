@@ -24,7 +24,7 @@ class _$ListFinderMethod extends ListFinderMethod {
 
   factory _$ListFinderMethod(
           [void Function(ListFinderMethodBuilder)? updates]) =>
-      (new ListFinderMethodBuilder()..update(updates)).build();
+      (new ListFinderMethodBuilder()..update(updates))._build();
 
   _$ListFinderMethod._(
       {required this.name,
@@ -35,19 +35,19 @@ class _$ListFinderMethod extends ListFinderMethod {
       required this.isFuture,
       required this.genericType})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(name, 'ListFinderMethod', 'name');
+    BuiltValueNullFieldError.checkNotNull(name, r'ListFinderMethod', 'name');
     BuiltValueNullFieldError.checkNotNull(
-        listTypeArgument, 'ListFinderMethod', 'listTypeArgument');
+        listTypeArgument, r'ListFinderMethod', 'listTypeArgument');
     BuiltValueNullFieldError.checkNotNull(
-        finderDeclaration, 'ListFinderMethod', 'finderDeclaration');
+        finderDeclaration, r'ListFinderMethod', 'finderDeclaration');
     BuiltValueNullFieldError.checkNotNull(
-        filterDeclarations, 'ListFinderMethod', 'filterDeclarations');
+        filterDeclarations, r'ListFinderMethod', 'filterDeclarations');
     BuiltValueNullFieldError.checkNotNull(
-        checkerDeclarations, 'ListFinderMethod', 'checkerDeclarations');
+        checkerDeclarations, r'ListFinderMethod', 'checkerDeclarations');
     BuiltValueNullFieldError.checkNotNull(
-        isFuture, 'ListFinderMethod', 'isFuture');
+        isFuture, r'ListFinderMethod', 'isFuture');
     BuiltValueNullFieldError.checkNotNull(
-        genericType, 'ListFinderMethod', 'genericType');
+        genericType, r'ListFinderMethod', 'genericType');
   }
 
   @override
@@ -87,7 +87,7 @@ class _$ListFinderMethod extends ListFinderMethod {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('ListFinderMethod')
+    return (newBuiltValueToStringHelper(r'ListFinderMethod')
           ..add('name', name)
           ..add('listTypeArgument', listTypeArgument)
           ..add('finderDeclaration', finderDeclaration)
@@ -167,23 +167,27 @@ class ListFinderMethodBuilder
   }
 
   @override
-  _$ListFinderMethod build() {
+  ListFinderMethod build() => _build();
+
+  _$ListFinderMethod _build() {
     final _$result = _$v ??
         new _$ListFinderMethod._(
             name: BuiltValueNullFieldError.checkNotNull(
-                name, 'ListFinderMethod', 'name'),
+                name, r'ListFinderMethod', 'name'),
             listTypeArgument: BuiltValueNullFieldError.checkNotNull(
-                listTypeArgument, 'ListFinderMethod', 'listTypeArgument'),
+                listTypeArgument, r'ListFinderMethod', 'listTypeArgument'),
             finderDeclaration: BuiltValueNullFieldError.checkNotNull(
-                finderDeclaration, 'ListFinderMethod', 'finderDeclaration'),
+                finderDeclaration, r'ListFinderMethod', 'finderDeclaration'),
             filterDeclarations: BuiltValueNullFieldError.checkNotNull(
-                filterDeclarations, 'ListFinderMethod', 'filterDeclarations'),
+                filterDeclarations, r'ListFinderMethod', 'filterDeclarations'),
             checkerDeclarations: BuiltValueNullFieldError.checkNotNull(
-                checkerDeclarations, 'ListFinderMethod', 'checkerDeclarations'),
+                checkerDeclarations,
+                r'ListFinderMethod',
+                'checkerDeclarations'),
             isFuture: BuiltValueNullFieldError.checkNotNull(
-                isFuture, 'ListFinderMethod', 'isFuture'),
+                isFuture, r'ListFinderMethod', 'isFuture'),
             genericType: BuiltValueNullFieldError.checkNotNull(
-                genericType, 'ListFinderMethod', 'genericType'));
+                genericType, r'ListFinderMethod', 'genericType'));
     replace(_$result);
     return _$result;
   }
@@ -214,4 +218,4 @@ abstract class ListFinderMethodBaseBuilder {
   set genericType(Optional<String>? genericType);
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

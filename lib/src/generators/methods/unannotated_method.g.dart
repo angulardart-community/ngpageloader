@@ -18,7 +18,7 @@ class _$UnannotatedMethod extends UnannotatedMethod {
 
   factory _$UnannotatedMethod(
           [void Function(UnannotatedMethodBuilder)? updates]) =>
-      (new UnannotatedMethodBuilder()..update(updates)).build();
+      (new UnannotatedMethodBuilder()..update(updates))._build();
 
   _$UnannotatedMethod._(
       {required this.name,
@@ -26,13 +26,13 @@ class _$UnannotatedMethod extends UnannotatedMethod {
       required this.parameters,
       required this.typeParameters})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(name, 'UnannotatedMethod', 'name');
+    BuiltValueNullFieldError.checkNotNull(name, r'UnannotatedMethod', 'name');
     BuiltValueNullFieldError.checkNotNull(
-        returnType, 'UnannotatedMethod', 'returnType');
+        returnType, r'UnannotatedMethod', 'returnType');
     BuiltValueNullFieldError.checkNotNull(
-        parameters, 'UnannotatedMethod', 'parameters');
+        parameters, r'UnannotatedMethod', 'parameters');
     BuiltValueNullFieldError.checkNotNull(
-        typeParameters, 'UnannotatedMethod', 'typeParameters');
+        typeParameters, r'UnannotatedMethod', 'typeParameters');
   }
 
   @override
@@ -63,7 +63,7 @@ class _$UnannotatedMethod extends UnannotatedMethod {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('UnannotatedMethod')
+    return (newBuiltValueToStringHelper(r'UnannotatedMethod')
           ..add('name', name)
           ..add('returnType', returnType)
           ..add('parameters', parameters)
@@ -120,20 +120,22 @@ class UnannotatedMethodBuilder
   }
 
   @override
-  _$UnannotatedMethod build() {
+  UnannotatedMethod build() => _build();
+
+  _$UnannotatedMethod _build() {
     final _$result = _$v ??
         new _$UnannotatedMethod._(
             name: BuiltValueNullFieldError.checkNotNull(
-                name, 'UnannotatedMethod', 'name'),
+                name, r'UnannotatedMethod', 'name'),
             returnType: BuiltValueNullFieldError.checkNotNull(
-                returnType, 'UnannotatedMethod', 'returnType'),
+                returnType, r'UnannotatedMethod', 'returnType'),
             parameters: BuiltValueNullFieldError.checkNotNull(
-                parameters, 'UnannotatedMethod', 'parameters'),
+                parameters, r'UnannotatedMethod', 'parameters'),
             typeParameters: BuiltValueNullFieldError.checkNotNull(
-                typeParameters, 'UnannotatedMethod', 'typeParameters'));
+                typeParameters, r'UnannotatedMethod', 'typeParameters'));
     replace(_$result);
     return _$result;
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

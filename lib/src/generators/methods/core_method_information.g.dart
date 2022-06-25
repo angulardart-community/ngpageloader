@@ -13,13 +13,13 @@ class _$TypeInformation extends TypeInformation {
   final List<TypeInformation> typeArguments;
 
   factory _$TypeInformation([void Function(TypeInformationBuilder)? updates]) =>
-      (new TypeInformationBuilder()..update(updates)).build();
+      (new TypeInformationBuilder()..update(updates))._build();
 
   _$TypeInformation._({required this.type, required this.typeArguments})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(type, 'TypeInformation', 'type');
+    BuiltValueNullFieldError.checkNotNull(type, r'TypeInformation', 'type');
     BuiltValueNullFieldError.checkNotNull(
-        typeArguments, 'TypeInformation', 'typeArguments');
+        typeArguments, r'TypeInformation', 'typeArguments');
   }
 
   @override
@@ -45,7 +45,7 @@ class _$TypeInformation extends TypeInformation {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('TypeInformation')
+    return (newBuiltValueToStringHelper(r'TypeInformation')
           ..add('type', type)
           ..add('typeArguments', typeArguments))
         .toString();
@@ -89,13 +89,15 @@ class TypeInformationBuilder
   }
 
   @override
-  _$TypeInformation build() {
+  TypeInformation build() => _build();
+
+  _$TypeInformation _build() {
     final _$result = _$v ??
         new _$TypeInformation._(
             type: BuiltValueNullFieldError.checkNotNull(
-                type, 'TypeInformation', 'type'),
+                type, r'TypeInformation', 'type'),
             typeArguments: BuiltValueNullFieldError.checkNotNull(
-                typeArguments, 'TypeInformation', 'typeArguments'));
+                typeArguments, r'TypeInformation', 'typeArguments'));
     replace(_$result);
     return _$result;
   }
@@ -137,7 +139,7 @@ class _$CoreMethodInformation extends CoreMethodInformation {
 
   factory _$CoreMethodInformation(
           [void Function(CoreMethodInformationBuilder)? updates]) =>
-      (new CoreMethodInformationBuilder()..update(updates)).build();
+      (new CoreMethodInformationBuilder()..update(updates))._build();
 
   _$CoreMethodInformation._(
       {required this.name,
@@ -158,37 +160,37 @@ class _$CoreMethodInformation extends CoreMethodInformation {
       required this.node})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        name, 'CoreMethodInformation', 'name');
+        name, r'CoreMethodInformation', 'name');
     BuiltValueNullFieldError.checkNotNull(
-        isGetter, 'CoreMethodInformation', 'isGetter');
+        isGetter, r'CoreMethodInformation', 'isGetter');
     BuiltValueNullFieldError.checkNotNull(
-        isAbstract, 'CoreMethodInformation', 'isAbstract');
+        isAbstract, r'CoreMethodInformation', 'isAbstract');
     BuiltValueNullFieldError.checkNotNull(
-        pageObjectType, 'CoreMethodInformation', 'pageObjectType');
+        pageObjectType, r'CoreMethodInformation', 'pageObjectType');
     BuiltValueNullFieldError.checkNotNull(
-        pageObjectTemplate, 'CoreMethodInformation', 'pageObjectTemplate');
+        pageObjectTemplate, r'CoreMethodInformation', 'pageObjectTemplate');
     BuiltValueNullFieldError.checkNotNull(
-        isFuture, 'CoreMethodInformation', 'isFuture');
+        isFuture, r'CoreMethodInformation', 'isFuture');
     BuiltValueNullFieldError.checkNotNull(
-        isList, 'CoreMethodInformation', 'isList');
+        isList, r'CoreMethodInformation', 'isList');
     BuiltValueNullFieldError.checkNotNull(
-        isMouse, 'CoreMethodInformation', 'isMouse');
+        isMouse, r'CoreMethodInformation', 'isMouse');
     BuiltValueNullFieldError.checkNotNull(
-        isPointer, 'CoreMethodInformation', 'isPointer');
+        isPointer, r'CoreMethodInformation', 'isPointer');
     BuiltValueNullFieldError.checkNotNull(
-        finder, 'CoreMethodInformation', 'finder');
+        finder, r'CoreMethodInformation', 'finder');
     BuiltValueNullFieldError.checkNotNull(
-        filters, 'CoreMethodInformation', 'filters');
+        filters, r'CoreMethodInformation', 'filters');
     BuiltValueNullFieldError.checkNotNull(
-        checkers, 'CoreMethodInformation', 'checkers');
+        checkers, r'CoreMethodInformation', 'checkers');
     BuiltValueNullFieldError.checkNotNull(
-        isRoot, 'CoreMethodInformation', 'isRoot');
+        isRoot, r'CoreMethodInformation', 'isRoot');
     BuiltValueNullFieldError.checkNotNull(
-        isNullElement, 'CoreMethodInformation', 'isNullElement');
+        isNullElement, r'CoreMethodInformation', 'isNullElement');
     BuiltValueNullFieldError.checkNotNull(
-        nodeSource, 'CoreMethodInformation', 'nodeSource');
+        nodeSource, r'CoreMethodInformation', 'nodeSource');
     BuiltValueNullFieldError.checkNotNull(
-        node, 'CoreMethodInformation', 'node');
+        node, r'CoreMethodInformation', 'node');
   }
 
   @override
@@ -266,7 +268,7 @@ class _$CoreMethodInformation extends CoreMethodInformation {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('CoreMethodInformation')
+    return (newBuiltValueToStringHelper(r'CoreMethodInformation')
           ..add('name', name)
           ..add('isGetter', isGetter)
           ..add('isAbstract', isAbstract)
@@ -399,33 +401,35 @@ class CoreMethodInformationBuilder
   }
 
   @override
-  _$CoreMethodInformation build() {
+  CoreMethodInformation build() => _build();
+
+  _$CoreMethodInformation _build() {
     final _$result = _$v ??
         new _$CoreMethodInformation._(
             name: BuiltValueNullFieldError.checkNotNull(
-                name, 'CoreMethodInformation', 'name'),
+                name, r'CoreMethodInformation', 'name'),
             isGetter: BuiltValueNullFieldError.checkNotNull(
-                isGetter, 'CoreMethodInformation', 'isGetter'),
+                isGetter, r'CoreMethodInformation', 'isGetter'),
             isAbstract: BuiltValueNullFieldError.checkNotNull(
-                isAbstract, 'CoreMethodInformation', 'isAbstract'),
+                isAbstract, r'CoreMethodInformation', 'isAbstract'),
             pageObjectType: BuiltValueNullFieldError.checkNotNull(
-                pageObjectType, 'CoreMethodInformation', 'pageObjectType'),
+                pageObjectType, r'CoreMethodInformation', 'pageObjectType'),
             pageObjectTemplate: BuiltValueNullFieldError.checkNotNull(
-                pageObjectTemplate, 'CoreMethodInformation', 'pageObjectTemplate'),
+                pageObjectTemplate, r'CoreMethodInformation', 'pageObjectTemplate'),
             isFuture: BuiltValueNullFieldError.checkNotNull(
-                isFuture, 'CoreMethodInformation', 'isFuture'),
+                isFuture, r'CoreMethodInformation', 'isFuture'),
             isList: BuiltValueNullFieldError.checkNotNull(
-                isList, 'CoreMethodInformation', 'isList'),
+                isList, r'CoreMethodInformation', 'isList'),
             isMouse: BuiltValueNullFieldError.checkNotNull(
-                isMouse, 'CoreMethodInformation', 'isMouse'),
-            isPointer: BuiltValueNullFieldError.checkNotNull(isPointer, 'CoreMethodInformation', 'isPointer'),
-            finder: BuiltValueNullFieldError.checkNotNull(finder, 'CoreMethodInformation', 'finder'),
-            filters: BuiltValueNullFieldError.checkNotNull(filters, 'CoreMethodInformation', 'filters'),
-            checkers: BuiltValueNullFieldError.checkNotNull(checkers, 'CoreMethodInformation', 'checkers'),
-            isRoot: BuiltValueNullFieldError.checkNotNull(isRoot, 'CoreMethodInformation', 'isRoot'),
-            isNullElement: BuiltValueNullFieldError.checkNotNull(isNullElement, 'CoreMethodInformation', 'isNullElement'),
-            nodeSource: BuiltValueNullFieldError.checkNotNull(nodeSource, 'CoreMethodInformation', 'nodeSource'),
-            node: BuiltValueNullFieldError.checkNotNull(node, 'CoreMethodInformation', 'node'));
+                isMouse, r'CoreMethodInformation', 'isMouse'),
+            isPointer: BuiltValueNullFieldError.checkNotNull(isPointer, r'CoreMethodInformation', 'isPointer'),
+            finder: BuiltValueNullFieldError.checkNotNull(finder, r'CoreMethodInformation', 'finder'),
+            filters: BuiltValueNullFieldError.checkNotNull(filters, r'CoreMethodInformation', 'filters'),
+            checkers: BuiltValueNullFieldError.checkNotNull(checkers, r'CoreMethodInformation', 'checkers'),
+            isRoot: BuiltValueNullFieldError.checkNotNull(isRoot, r'CoreMethodInformation', 'isRoot'),
+            isNullElement: BuiltValueNullFieldError.checkNotNull(isNullElement, r'CoreMethodInformation', 'isNullElement'),
+            nodeSource: BuiltValueNullFieldError.checkNotNull(nodeSource, r'CoreMethodInformation', 'nodeSource'),
+            node: BuiltValueNullFieldError.checkNotNull(node, r'CoreMethodInformation', 'node'));
     replace(_$result);
     return _$result;
   }
@@ -483,4 +487,4 @@ abstract class CoreMethodInformationBaseBuilder {
   set node(AstNode? node);
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas
