@@ -27,15 +27,20 @@ jobs:
       - name: Install dependencies
         run: dart pub get
 
+      - name: Verify formatting
+        run: dart format --output=none --set-exit-if-changed .
+
+      - name: Analyze project source
+        run: dart analyze --fatal-infos
+
       - name: Run core and creator tests
-        # Use `expanded` for better logging in CI environments
-        run: dart test -x webdriver -r expanded
+        run: dart test -x webdriver
 
       - name: Run HTML tests
-        run: dart test -t html -p chrome -r expanded
+        run: dart test -t html -p chrome
 
       - name: Start webdriver
         run: chromedriver --port=4444 --url-base=wd/hub &
 
       - name: Run webdriver tests
-        run: dart test -t webdriver -r expanded
+        run: dart test -t webdriver
