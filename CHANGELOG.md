@@ -1,3 +1,7 @@
+## 5.0.0-dev.1
+
+- Migrate codebase entirely to null safety.
+
 ## 4.1.0
 
 - Bump analyzer to allow compatibility with Angular 7.
