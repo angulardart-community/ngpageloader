@@ -1,6 +1,6 @@
 name: ngpageloader
 
-version: 4.1.0
+version: 5.0.0-dev.1
 
 # Deprecated, but kept to thank all of the brilliant developers below for their
 # fantastic work.
@@ -20,7 +20,7 @@ environment:
   sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
-  analyzer: 2.5.0
+  analyzer: ">=2.0.0 <2.6.0"
   build: ^2.0.2
   built_value: ^8.0.6
   build_config: ^1.0.0
