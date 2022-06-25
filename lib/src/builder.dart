@@ -25,7 +25,7 @@ import 'package:build/build.dart';
 import 'package:source_gen/source_gen.dart';
 
 // ignore: import_of_legacy_library_into_null_safe
-import 'src/generators/pageobject_generator.dart';
+import 'generators/pageobject_generator.dart';
 
 /// Supports `package:build_runner` creation and configuration of `pageloader`.
 ///
