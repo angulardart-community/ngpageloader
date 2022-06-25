@@ -1,5 +1,3 @@
-// @dart = 2.9
-
 // Copyright 2017 Google Inc. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -73,7 +71,7 @@ TypeInformation extractPageObjectInfo(
 
 CoreMethodInformation collectCoreMethodInformation(MethodDeclaration node) {
   // Extract type info.
-  final typeInfo = getTypeInformation(node.returnType.toSource());
+  final typeInfo = getTypeInformation(node.returnType!.toSource());
 
   final isFuture = typeInfo.type == 'Future';
   final isList = typeInfo.type == 'List' ||

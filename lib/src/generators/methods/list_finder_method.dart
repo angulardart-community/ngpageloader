@@ -1,5 +1,3 @@
-// @dart = 2.9
-
 // Copyright 2017 Google Inc. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,6 +15,7 @@
 library pageloader.list_finder_method;
 
 import 'package:analyzer/dart/ast/ast.dart';
+import 'package:analyzer/dart/element/type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:quiver/core.dart';
 
@@ -40,11 +39,13 @@ Optional<ListFinderMethod> collectListFinderGetter(
   }
 
   // Convert 'ByCheckTag' to 'ByTagName' if necessary.
-  var finder = methodInfo.finder.value;
+  String? finder = methodInfo.finder.orNull;
   if (finder != null && finder.contains('ByCheckTag')) {
     finder = generateByTagNameFromByCheckTag(
-        getInnerType(node.returnType.type, methodInfo.pageObjectType),
-        node.toSource());
+      getInnerType(node.returnType!.type!, methodInfo.pageObjectType)
+          as InterfaceType,
+      node.toSource(),
+    );
   }
 
   return Optional.of(ListFinderMethod((b) => b
