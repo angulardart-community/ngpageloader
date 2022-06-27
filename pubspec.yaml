@@ -17,10 +17,10 @@ description: |
 homepage: https://github.com/angulardart-community/ngpageloader
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: '>=2.17.0 <3.0.0'
 
 dependencies:
-  analyzer: ">=2.0.0 <2.7.0"
+  analyzer: ^4.1.0
   build: ^2.0.2
   built_value: ^8.0.6
   build_config: ^1.0.0

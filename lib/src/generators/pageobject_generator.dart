@@ -321,9 +321,8 @@ bool hasDefaultConstructor(ClassElement element) {
 bool hasFactoryConstructor(ClassElement element) {
   final constructors = element.constructors;
   if (constructors.isNotEmpty) {
-    return constructors.any((c) =>
-        c.isFactory &&
-        (c.displayName == 'create' || c.displayName == 'lookup'));
+    return constructors
+        .any((c) => c.isFactory && (c.name == 'create' || c.name == 'lookup'));
   }
   return false;
 }

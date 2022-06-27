@@ -32,7 +32,7 @@ class InvalidMethodException implements Exception {
     final compUnitElement = _getCompilationUnitElement(node);
     final uri = compUnitElement.source.uri;
 
-    final exactLineInfo = compUnitElement.lineInfo!.getLocation(node.offset);
+    final exactLineInfo = compUnitElement.lineInfo.getLocation(node.offset);
     return '$uri $exactLineInfo\t\t ${node.toSource()}';
   }
 

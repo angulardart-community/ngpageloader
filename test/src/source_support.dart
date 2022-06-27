@@ -72,13 +72,20 @@ class TestDriver {
   /// Root path on all scoped files.
   final String root = '/test/root/path';
 
+  /// Root path for the mock SDK.
+  final String mockSdkPath = "/dart";
+
   final MemoryResourceProvider resourceProvider = MemoryResourceProvider();
 
   TestDriver() {
-    MockSdk(resourceProvider: resourceProvider);
+    createMockSdk(
+      resourceProvider: resourceProvider,
+      root: resourceProvider.getFolder(mockSdkPath),
+    );
+
     collection = AnalysisContextCollection(
       resourceProvider: resourceProvider,
-      sdkPath: sdkRoot,
+      sdkPath: mockSdkPath,
       includedPaths: [root],
     );
 
