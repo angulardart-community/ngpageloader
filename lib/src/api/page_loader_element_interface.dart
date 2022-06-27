@@ -106,7 +106,7 @@ abstract class PageLoaderElement extends PageLoaderSource {
   /// Attributes associated with this element.
   ///
   /// Deprecated: use [attributes].
-  @deprecated
+  @Deprecated("Use the [attributes] getter.")
   PageLoaderAttributes get seleniumAttributes;
 
   /// Attributes associated with this element.

@@ -93,7 +93,7 @@ class NullPageLoaderElement implements PageLoaderElement {
       throw NullPageLoaderElementAccessException('attributes', this);
 
   @override
-  @deprecated
+  @Deprecated("Use the [attributes] getter.")
   PageLoaderAttributes get seleniumAttributes =>
       throw NullPageLoaderElementAccessException('seleniumAttributes', this);
 
