@@ -1,5 +1,4 @@
-PageLoader
-==========
+## PageLoader
 
 ![Dart CI](https://img.shields.io/github/workflow/status/angulardart-community/ngpageloader/Dart%20CI)
 ![Pub](https://img.shields.io/pub/v/ngpageloader)
@@ -17,13 +16,14 @@ Refer to our [best practices section](best_practices.md) to master using PageLoa
 Starting with version 3.0.0, PageLoader is changed significantly from version 2.X.X.
 Refer to our [what changed section](what_changed.md) for more information.
 
+<!--
 Note: ungenerated PageObject files might cause static analysis issues (which can
 be particularly annoying during CI). Before running `dart analyze`, you can run
 `dart run build_runner build ngpageloader` to only generate the PageObject
 files. No other builders will be run.
+-->
 
-How do I trigger the generation step?
-=====================================
+### How do I trigger the generation step?
 `dart run build_runner build`
 
 If you are starting with a fresh checkout or deleted your `.dart_tool` directory,
