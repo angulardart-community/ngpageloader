@@ -1,3 +1,8 @@
+## 5.0.0-dev.2
+
+- Bump minimum SDK constraint to >=2.17.
+- Bump analyzer to 4.1.0.
+
 ## 5.0.0-dev.1
 
 - Migrate codebase entirely to null safety.
