@@ -1,3 +1,7 @@
+## 5.0.0
+
+- Bump analyzer to 4.2.0 (i.e. Dart 2.17).
+
 ## 5.0.0-dev.2
 
 - Bump minimum SDK constraint to >=2.17.
