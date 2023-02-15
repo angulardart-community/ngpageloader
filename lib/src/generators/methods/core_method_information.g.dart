@@ -40,7 +40,11 @@ class _$TypeInformation extends TypeInformation {
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, type.hashCode), typeArguments.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, type.hashCode);
+    _$hash = $jc(_$hash, typeArguments.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
@@ -226,44 +230,25 @@ class _$CoreMethodInformation extends CoreMethodInformation {
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc(
-            $jc(
-                $jc(
-                    $jc(
-                        $jc(
-                            $jc(
-                                $jc(
-                                    $jc(
-                                        $jc(
-                                            $jc(
-                                                $jc(
-                                                    $jc(
-                                                        $jc(
-                                                            $jc(
-                                                                $jc(
-                                                                    0,
-                                                                    name
-                                                                        .hashCode),
-                                                                isGetter
-                                                                    .hashCode),
-                                                            isAbstract
-                                                                .hashCode),
-                                                        pageObjectType
-                                                            .hashCode),
-                                                    pageObjectTemplate
-                                                        .hashCode),
-                                                isFuture.hashCode),
-                                            isList.hashCode),
-                                        isMouse.hashCode),
-                                    isPointer.hashCode),
-                                finder.hashCode),
-                            filters.hashCode),
-                        checkers.hashCode),
-                    isRoot.hashCode),
-                isNullElement.hashCode),
-            nodeSource.hashCode),
-        node.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, isGetter.hashCode);
+    _$hash = $jc(_$hash, isAbstract.hashCode);
+    _$hash = $jc(_$hash, pageObjectType.hashCode);
+    _$hash = $jc(_$hash, pageObjectTemplate.hashCode);
+    _$hash = $jc(_$hash, isFuture.hashCode);
+    _$hash = $jc(_$hash, isList.hashCode);
+    _$hash = $jc(_$hash, isMouse.hashCode);
+    _$hash = $jc(_$hash, isPointer.hashCode);
+    _$hash = $jc(_$hash, finder.hashCode);
+    _$hash = $jc(_$hash, filters.hashCode);
+    _$hash = $jc(_$hash, checkers.hashCode);
+    _$hash = $jc(_$hash, isRoot.hashCode);
+    _$hash = $jc(_$hash, isNullElement.hashCode);
+    _$hash = $jc(_$hash, nodeSource.hashCode);
+    _$hash = $jc(_$hash, node.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
@@ -487,4 +472,4 @@ abstract class CoreMethodInformationBaseBuilder {
   set node(AstNode? node);
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint
