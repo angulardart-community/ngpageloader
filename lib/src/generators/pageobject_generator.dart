@@ -341,7 +341,7 @@ bool isPageObject(ClassElement classElement) {
   for (final annotation in classElement.metadata) {
     final element = annotation.element;
     if (element is ConstructorElement &&
-        element.enclosingElement.displayName == 'PageObject') {
+        element.enclosingElement3.displayName == 'PageObject') {
       return true;
     }
   }

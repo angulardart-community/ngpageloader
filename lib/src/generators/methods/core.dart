@@ -60,7 +60,7 @@ String _extractTagName(ClassElement poTypeElement) {
   for (final annotation in poTypeElement.metadata) {
     final annotationElement = annotation.element;
     if (annotationElement is ConstructorElement) {
-      final annotationName = annotationElement.enclosingElement.displayName;
+      final annotationName = annotationElement.enclosingElement3.displayName;
       final annotationValue = annotation.computeConstantValue();
       if (annotationName == 'CheckTag') {
         final inner = annotationValue!.getField('_expectedTagName')!;
