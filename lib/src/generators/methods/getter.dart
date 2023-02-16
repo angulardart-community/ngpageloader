@@ -27,7 +27,7 @@ Optional<Getter> collectUnannotatedGetter(MethodDeclaration node) {
   if (!node.isAbstract && node.isGetter && !node.isStatic) {
     return Optional.of(Getter((b) => b
       ..returnType = node.returnType.toString()
-      ..name = node.name.toString()));
+      ..name = node.name2.toString()));
   }
   return Optional.absent();
 }

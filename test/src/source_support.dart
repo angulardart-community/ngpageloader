@@ -59,7 +59,7 @@ class MethodFinder extends GeneralizingAstVisitor<void> {
 
   @override
   void visitMethodDeclaration(MethodDeclaration node) {
-    if (node.name.name == _methodName) {
+    if (node.name2.lexeme == _methodName) {
       _method = node;
     }
   }

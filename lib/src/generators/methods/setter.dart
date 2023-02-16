@@ -28,7 +28,7 @@ Optional<Setter> collectUnannotatedSetter(MethodDeclaration node) {
   if (!node.isAbstract && node.isSetter) {
     final param = node.parameters!.parameters.first;
     return Optional.of(Setter((b) => b
-      ..name = node.name.toString()
+      ..name = node.name2.toString()
       ..setterType = typeToCode(param.declaredElement!.type)
       ..setterValueName = param.declaredElement!.name));
   }

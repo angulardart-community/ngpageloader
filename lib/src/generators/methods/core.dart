@@ -43,7 +43,7 @@ String generateAnnotationDeclaration(Annotation annotation) =>
 /// Returns a 'ByTagName' declaration from the 'ByCheckTag' annotation.
 String generateByTagNameFromByCheckTag(
     InterfaceType node, String methodSource) {
-  final defaultTagName = _extractTagName(node.element);
+  final defaultTagName = _extractTagName(node.element2);
   if (defaultTagName.isEmpty) {
     throw "'@ByCheckTag' can only be used on getters that return a "
         "PageObject type with the'@CheckTag' annotation.\n\nCheck the type on "
@@ -55,7 +55,7 @@ String generateByTagNameFromByCheckTag(
 /// Extracts the tag name from a PageLoader2 class based on `@CheckTag`.
 /// If there is no tag name associated with the Page Object,
 /// returns and empty string.
-String _extractTagName(ClassElement poTypeElement) {
+String _extractTagName(InterfaceElement poTypeElement) {
   String expectedTag = '';
   for (final annotation in poTypeElement.metadata) {
     final annotationElement = annotation.element;
@@ -168,7 +168,7 @@ DartType getInnerType(DartType topType, String matchingType) {
       matchingType.contains('.') ? matchingType.split('.')[1] : matchingType;
   final typeArgs = (topType as ParameterizedType).typeArguments;
   final first = typeArgs.first;
-  if (first.element?.name == matchingType) {
+  if (first.element2?.name == matchingType) {
     return first;
   }
   return getInnerType(first, matchingType);

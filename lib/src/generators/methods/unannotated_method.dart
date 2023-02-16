@@ -33,7 +33,7 @@ Optional<UnannotatedMethod> collectUnannotatedMethod(MethodDeclaration node) {
   }
 
   return Optional.of(UnannotatedMethod((b) => b
-    ..name = node.name.toString()
+    ..name = node.name2.toString()
     ..returnType = node.returnType.toString()
     ..parameters = node.parameters?.parameters
     ..typeParameters = Optional.fromNullable(node.typeParameters)));
@@ -77,7 +77,7 @@ abstract class UnannotatedMethod
       return '';
     }
     final arguments = typeParameters.value.typeParameters
-        .map((param) => param.name.toSource())
+        .map((param) => param.name2.toString())
         .join(', ');
     return '<$arguments>';
   }

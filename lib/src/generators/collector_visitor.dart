@@ -292,7 +292,7 @@ class CollectorVisitor extends GeneralizingAstVisitor<void> {
           for (final typeParameter
               in method.typeParameters.value.typeParameters) {
             buffer.writeln('''{
-               'name': '${typeParameter.name}',
+               'name': '${typeParameter.name2}',
                'kind': 'type'
              },''');
           }
