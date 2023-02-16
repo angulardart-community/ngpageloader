@@ -7,15 +7,11 @@ on:
     branches: [main]
 
 jobs:
-  test:
-    # runs-on: ${{ matrix.os }}
+  analyze:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        # os: [ubuntu-latest, macos-latest, windows-latest]
-        # sdk: [stable, dev, 2.17.0]
-        # No `dev` for now since `dart2js` was removed.
         sdk: [stable, 2.17.0]
     steps:
       - uses: actions/checkout@v2
@@ -33,14 +29,39 @@ jobs:
       - name: Analyze project source
         run: dart analyze --fatal-infos
 
-      - name: Run core and creator tests
+  test:
+    # runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # os: [ubuntu-latest, macos-latest, windows-latest]
+        # sdk: [stable, dev, 2.17.0]
+        # No `dev` for now since `dart2js` was removed.
+        sdk: [stable, 2.17.0]
+        target: [vm, chrome, webdriver]
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: ${{ matrix.sdk }}
+
+      - name: Install dependencies
+        run: dart pub get
+
+      - name: Run core, creator tests
+        if: ${{ matrix.target == 'vm' }}
         run: dart test -x webdriver
 
       - name: Run HTML tests
+        if: ${{ matrix.target == 'chrome' }}
         run: dart test -t html -p chrome
 
       - name: Start webdriver
+        if: ${{ matrix.target == 'webdriver' }}
         run: chromedriver --port=4444 --url-base=wd/hub &
 
       - name: Run webdriver tests
+        if: ${{ matrix.target == 'webdriver' }}
         run: dart test -t webdriver
