@@ -67,13 +67,19 @@ class PageObjectGenerator extends GeneratorForAnnotation<PageObject> {
     final nullSafety =
         NullSafety((b) => b..enabled = library.isNonNullableByDefault);
 
-    if (annotatedNode is ClassOrMixinDeclaration) {
+    if (annotatedNode is ClassDeclaration ||
+        annotatedNode is MixinDeclaration) {
       try {
         final ignore =
             '// ignore_for_file: unused_field, non_constant_identifier_names\n'
             '// ignore_for_file: overridden_fields, annotate_overrides\n'
             '// ignore_for_file: prefer_final_locals, deprecated_member_use_from_same_package\n';
-        return '$ignore${_generateClass(nullSafety, annotatedNode, poAnnotation)}';
+
+        if (annotatedNode is ClassDeclaration) {
+          return '$ignore${_generateClass(nullSafety, annotatedNode, poAnnotation)}';
+        } else {
+          return '$ignore${_generateClassForMixin(nullSafety, annotatedNode as MixinDeclaration, poAnnotation)}';
+        }
       } catch (e, stackTrace) {
         print('Failure generating class for $library! '
             '\n $e \n $stackTrace');
@@ -85,8 +91,8 @@ class PageObjectGenerator extends GeneratorForAnnotation<PageObject> {
     }
   }
 
-  String _generateClass(NullSafety nullSafety,
-      ClassOrMixinDeclaration declaration, PageObject poAnnotation) {
+  String _generateClass(NullSafety nullSafety, ClassDeclaration declaration,
+      PageObject poAnnotation) {
     final collectorVisitor = CollectorVisitor(nullSafety, declaration);
     declaration.visitChildren(collectorVisitor);
 
@@ -94,7 +100,7 @@ class PageObjectGenerator extends GeneratorForAnnotation<PageObject> {
 
     final constructorBuffer = StringBuffer();
     final mixinBuffer = StringBuffer();
-    final className = declaration.name.toString();
+    final className = declaration.name2.toString();
     final generics = _generateTypeParameters(declaration);
     final genericsArgs = _generateTypeArguments(declaration);
     final signature = '$className$generics';
@@ -102,10 +108,10 @@ class PageObjectGenerator extends GeneratorForAnnotation<PageObject> {
 
     // Run check to make sure PO is not extending another PO.
     // Only mixins are allowed.
-    if (poExtendsAnotherPo(declaration.declaredElement!)) {
+    if (poExtendsAnotherPo(declaration.declaredElement2!)) {
       throw Exception('******************\n\n'
           'Errors detected during code generation:\n\n'
-          "PageObject class '${declaration.name.name}' is extending another "
+          "PageObject class '${declaration.name2.lexeme}' is extending another "
           'PageObject class. PageObjects may not extend other PageObjects; '
           'Use mixins instead.'
           '\n\n******************');
@@ -113,19 +119,19 @@ class PageObjectGenerator extends GeneratorForAnnotation<PageObject> {
 
     // Run check to make sure if PO has any factory constructor, it must has
     // a default constructor as well.
-    if (hasFactoryConstructor(declaration.declaredElement!) &&
-        !hasDefaultConstructor(declaration.declaredElement!)) {
+    if (hasFactoryConstructor(declaration.declaredElement2!) &&
+        !hasDefaultConstructor(declaration.declaredElement2!)) {
       throw Exception('******************\n\n'
           'Errors detected during code generation:\n\n'
-          "PageObject class '${declaration.name.name}' has a factory constructor"
+          "PageObject class '${declaration.name2.lexeme}' has a factory constructor"
           ', but there is no default constructor.'
           '\n\n******************');
     }
 
     // If PageObject has constructor, define constructor class with root
     // and start constructor.
-    if (hasPoConstructors(declaration.declaredElement!)) {
-      final withs = getMixins(declaration.declaredElement!, signatureArgs);
+    if (hasPoConstructors(declaration.declaredElement2!)) {
+      final withs = getMixins(declaration.declaredElement2!, signatureArgs);
       constructorBuffer.write('''
       class \$$signature extends $signatureArgs
           with ${withs.map((w) => '\$\$$w').join(', ')} {
@@ -140,7 +146,7 @@ class PageObjectGenerator extends GeneratorForAnnotation<PageObject> {
 
       // If @EnsureTag used, we add finder to constructor. Otherwise
       // set current root as the passed 'currentContext'.
-      final ensureTag = core.getEnsureTag(declaration as ClassDeclaration);
+      final ensureTag = core.getEnsureTag(declaration);
       if (ensureTag.isPresent) {
         constructorBuffer.write('${core.root} = currentContext.createElement'
             '(${core.generateAnnotationDeclaration(ensureTag.value)}, '
@@ -209,19 +215,73 @@ class PageObjectGenerator extends GeneratorForAnnotation<PageObject> {
     return '${constructorBuffer.toString()}\n${mixinBuffer.toString()}';
   }
 
+  String _generateClassForMixin(NullSafety nullSafety,
+      MixinDeclaration declaration, PageObject poAnnotation) {
+    final collectorVisitor = CollectorVisitor(nullSafety, declaration);
+    declaration.visitChildren(collectorVisitor);
+
+    _doErrorHandling(collectorVisitor);
+
+    final mixinBuffer = StringBuffer();
+    final className = declaration.name2.toString();
+    final generics = _generateTypeParametersForMixin(declaration);
+    final genericsArgs = _generateTypeArgumentsForMixin(declaration);
+    final signature = '$className$generics';
+    final signatureArgs = '$className$genericsArgs';
+
+    // Define annotation-generated mixin class.
+    mixinBuffer.write('mixin \$\$$signature on $signatureArgs {\n');
+    mixinBuffer.write('${nullSafety.isLate} PageLoaderElement ${core.root};\n');
+    if (collectorVisitor.mouseFinderMethods.isNotEmpty) {
+      mixinBuffer.write('PageLoaderMouse${nullSafety.orNull} ${core.mouse};\n');
+    }
+    if (collectorVisitor.pointerFinderMethods.isNotEmpty) {
+      mixinBuffer
+          .write('PageLoaderPointer${nullSafety.orNull} ${core.pointer};\n');
+    }
+
+    // Add generated root accessor to be used in internal code.
+    mixinBuffer.write('PageLoaderElement get \$root => ${core.root};\n');
+
+    // Write out the generated code and insert into the mixin class.
+    collectorVisitor.writeToMixinBuffer(mixinBuffer, className);
+
+    // Close mixin class
+    mixinBuffer.write('}');
+
+    // Return generated code
+    return '\n${mixinBuffer.toString()}';
+  }
+
   // Given <T extends Blah, R extends Foo, Z>, returns this exactly.
-  String _generateTypeParameters(ClassOrMixinDeclaration declaration) =>
+  String _generateTypeParameters(ClassDeclaration declaration) =>
+      declaration.typeParameters != null
+          ? declaration.typeParameters!.toSource()
+          : '';
+
+  // Given <T extends Blah, R extends Foo, Z>, returns this exactly.
+  String _generateTypeParametersForMixin(MixinDeclaration declaration) =>
       declaration.typeParameters != null
           ? declaration.typeParameters!.toSource()
           : '';
 
   // Given <T extends Blah, R extends Foo, Z>, returns <T, R, Z>.
-  String _generateTypeArguments(ClassOrMixinDeclaration declaration) {
+  String _generateTypeArguments(ClassDeclaration declaration) {
     if (declaration.typeParameters == null) {
       return '';
     }
     final typeArguments =
-        declaration.typeParameters!.typeParameters.map((tp) => tp.name.name);
+        declaration.typeParameters!.typeParameters.map((tp) => tp.name2.lexeme);
+    return '<${typeArguments.join(', ')}>';
+  }
+
+  // Given <T extends Blah, R extends Foo, Z>, returns <T, R, Z>.
+  String _generateTypeArgumentsForMixin(MixinDeclaration declaration) {
+    if (declaration.typeParameters == null) {
+      return '';
+    }
+    final typeArguments =
+        declaration.typeParameters!.typeParameters.map((tp) => tp.name2.lexeme);
     return '<${typeArguments.join(', ')}>';
   }
 
@@ -264,8 +324,8 @@ List<String> getMixins(ClassElement mainPo, String mainSignature) {
   // If the direct extension is not 'Object' and is a @PageObject annotated
   // class, we add its mixin-component to the list.
   if (supertype != null && !supertype.isDartCoreObject) {
-    if (isPageObject(supertype.element)) {
-      withs.add(supertype.element.name);
+    if (isPageObject(supertype.element2)) {
+      withs.add(supertype.element2.name);
     }
   }
 
@@ -275,8 +335,8 @@ List<String> getMixins(ClassElement mainPo, String mainSignature) {
   // Generated:
   //   class $MyPo extends MyPo with $$A_POMixin, $$B_POMixin, $$MyPo
   for (final mixin in mixins) {
-    final name = mixin.element.name;
-    if (isPageObject(mixin.element)) {
+    final name = mixin.element2.name;
+    if (isPageObject(mixin.element2)) {
       withs.add(name);
     }
   }
@@ -333,15 +393,15 @@ bool poExtendsAnotherPo(ClassElement classElement) {
   if (supertype == null) {
     return false;
   }
-  return isPageObject(supertype.element);
+  return isPageObject(supertype.element2);
 }
 
 /// Checks if the current class has @PageObject annotation.
-bool isPageObject(ClassElement classElement) {
-  for (final annotation in classElement.metadata) {
+bool isPageObject(InterfaceElement interfaceElement) {
+  for (final annotation in interfaceElement.metadata) {
     final element = annotation.element;
     if (element is ConstructorElement &&
-        element.enclosingElement.displayName == 'PageObject') {
+        element.enclosingElement3.displayName == 'PageObject') {
       return true;
     }
   }

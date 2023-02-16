@@ -155,7 +155,7 @@ CoreMethodInformation collectCoreMethodInformation(MethodDeclaration node) {
   }
 
   return CoreMethodInformation((b) => b
-    ..name = node.name.toSource()
+    ..name = node.name2.toString()
     ..isGetter = node.isGetter
     ..isAbstract = node.isAbstract
     ..pageObjectType = pageObjectInfo.type

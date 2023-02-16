@@ -81,7 +81,7 @@ Optional<IterableFinderMethod> collectIterableFinderGetter(
     return Optional.absent();
   } else {
     return Optional.of(IterableFinderMethod((b) => b
-      ..name = node.name.toString()
+      ..name = node.name2.toString()
       ..iterableTypeArgument = typeArguments[0]
       ..finderDeclaration = finder
       ..filterDeclarations = '[${filters.join(', ')}]'

@@ -56,7 +56,7 @@ Set<AnnotationKind> evaluateAsInterfaceAnnotation(Element element) {
     final seenValidAnnotations = <AnnotationKind?>{};
     final interfaces = [type, ...type.allSupertypes];
     for (var interface in interfaces) {
-      final interfaceElement = interface.element;
+      final interfaceElement = interface.element2;
       if (interfaceElement.library.name == pageLoaderAnnotationInterface) {
         seenValidAnnotations.add(
           classNameToAnnotationKind(interfaceElement.name, isAtomic: false),

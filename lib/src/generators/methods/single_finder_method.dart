@@ -141,7 +141,7 @@ Optional<SingleFinderMethod> collectSingleFinderGetter(
   }
 
   return Optional.of(SingleFinderMethod((b) => b
-    ..name = node.name.toString()
+    ..name = node.name2.toString()
     ..pageObjectType = typeArgument
     ..finderDeclaration = Optional.fromNullable(finder)
     ..filterDeclarations = '[${filters.join(', ')}]'
